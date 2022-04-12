@@ -38,6 +38,9 @@ export default class EchartDemo extends Vue {
       myChart.resize();
     };
   }
+  // public name() {
+    
+  // }
 }
 </script>
 
