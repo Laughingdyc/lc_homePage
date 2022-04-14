@@ -8,7 +8,7 @@
 <script lang="ts">
 import dayjs from "dayjs";
 import * as echarts from 'echarts'
-import { getHomePageViews } from '@/api/echart_demo'
+import { getHomePageViews, getUpdateViews } from '@/api/echart_demo'
 import { defineComponent, onMounted } from 'vue'
 export default defineComponent ({
   props: {
@@ -19,6 +19,7 @@ export default defineComponent ({
   },
   setup () {
     onMounted(() => {
+      getUpdateViews()
       const dateData = formatDate(30)
       const viewData: number[] = []
       getHomePageViews({
