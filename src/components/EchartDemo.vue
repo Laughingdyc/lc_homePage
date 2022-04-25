@@ -19,14 +19,14 @@ export default defineComponent ({
   },
   setup () {
     onMounted(() => {
-      getUpdateViews()
+      // getUpdateViews()
       const dateData = formatDate(30)
       const viewData: number[] = []
       getHomePageViews({
         startDate: dateData[0],
         endDate: dateData[dateData.length - 1]
       }).then((response) => {
-        if (response.status === 200 && response.data) {
+        if (response.status === 0 && response.data) {
           response.data.data.map((x:any) => {
             viewData.push(x.views)
           })
@@ -51,6 +51,8 @@ export default defineComponent ({
           window.onresize = function () {//自适应大小
             myChart.resize();
           };
+        } else {
+          alert(response.data.message)
         }
       })
     })
